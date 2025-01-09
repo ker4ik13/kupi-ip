@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    /* --background: 222.2 84% 4.9%; */
+    --background: 240 100% 4%;
+    --foreground: 210 40% 98%;
+    --background-light: 240 32% 12%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --brand-primary-a: 219 100% 85%;
+    --brand-primary-a--active: 219 100% 72%;
+    --brand-primary-b: 240 100% 96%;
+    --brand-primary-b--active: 240 100% 97%;
+    --brand-primary-dark: 219 100% 18%;
+    --brand-secondary-a: 240 94% 39%;
+    --brand-secondary-a--active: 940 91% 45%;
+    --brand-secondary-b: 240 100% 28%;
+    --brand-secondary-b--active: 240 92% 38%;
+    --brand-secondary-dark: 240 100% 10%;
+    --brand-tertiary: 51 100% 50%;
+    --brand-tertiary-foreground: 222.2 84% 4.9%;
+    --brand-tertiary--active: 51 100% 55%;
+    --brand-bg-glow: 228 100% 52%;
+    --muted: 217.2 32.6% 17.5%;
+    /* --muted-foreground: 215 20.2% 65.1%; */
+    --muted-foreground: 210 40% 78.4%;
+    --accent: 240 32% 12%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+
+    --header-height: rem-convert(64px);
+    @media (min-width: theme(screens.md)) {
+      --header-height: rem-convert(60px);
+    }
+    --scroll-bar-width: calc(100vw - 100%);
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .active-class {
+    transform: translateY(0);
+    transition-property: transform;
+    transition-duration: 0.11s;
+  }
+
+  .active-class:active {
+    &:not([disabled]) {
+      transform: translateY(1px);
+    }
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
