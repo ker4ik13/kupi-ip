@@ -8,6 +8,7 @@ interface Props {
 
 export const YandexMetrika = ({ children }: Props) => {
   if (process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID) {
+    console.log('Enabling Yandex Metrika...')
     return (
       <YandexMetricaProvider
         tagID={
