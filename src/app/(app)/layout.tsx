@@ -13,7 +13,6 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Header } from '@/modules/layout/Header'
 import { Footer } from '@/modules/layout/Footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { YandexMetricaProvider } from 'next-yandex-metrica'
 import { YandexMetrika } from '@/modules/layout/YandexMetrika'
 
 const roboto = Roboto({
