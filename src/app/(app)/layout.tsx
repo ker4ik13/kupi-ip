@@ -44,20 +44,19 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
           'font-sans antialiased dark relative overflow-x-hidden',
         )}
       >
-        <YandexMetrika>
-          {draft && (
-            <>
-              <LivePreviewListener />
-              <ExitPreview />
-            </>
-          )}
-          <GradientDefs />
-          <NuqsAdapter>
-            <Header data={settings?.navigation?.header ?? {}} />
-            {children}
-            <Footer data={settings?.navigation?.footer ?? {}} />
-          </NuqsAdapter>
-        </YandexMetrika>
+        {draft && (
+          <>
+            <LivePreviewListener />
+            <ExitPreview />
+          </>
+        )}
+        <GradientDefs />
+        <NuqsAdapter>
+          <Header data={settings?.navigation?.header ?? {}} />
+          {children}
+          <Footer data={settings?.navigation?.footer ?? {}} />
+        </NuqsAdapter>
+        <YandexMetrika />
       </body>
       {analyticsEnabled && process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
