@@ -55,7 +55,16 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
           {children}
           <Footer data={settings?.navigation?.footer ?? {}} />
         </NuqsAdapter>
-        <YandexMetrika />
+        <YandexMetrika
+          initParameters={{
+            accurateTrackBounce: true,
+            clickmap: true,
+            trackHash: true,
+            trackLinks: true,
+            webvisor: true,
+            ecommerce: false,
+          }}
+        />
       </body>
       {analyticsEnabled && process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
