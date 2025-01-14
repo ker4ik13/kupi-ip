@@ -9,7 +9,7 @@ import React, {
   cloneElement,
 } from 'react'
 import { cn } from '@/utils/cn'
-import Logo from '@/assets/Logo.svg'
+import Logo from '@/assets/logo.svg'
 import NextLink from 'next/link'
 import { Settings } from '@payload-types'
 import { getLinkProps } from '@/utils/getLinkProps'
