@@ -43,9 +43,11 @@ const config = {
     extend: {
       height: {
         header: 'var(--header-height)',
+        page: 'var(--page-height)',
       },
       spacing: {
         header: 'var(--header-height)',
+        page: 'var(--page-height)',
       },
       lineHeight: {
         normal: 'normal',

@@ -51,6 +51,8 @@
       --header-height: rem-convert(60px);
     }
     --scroll-bar-width: calc(100vw - 100%);
+
+    --page-height: calc(100svh - var(--header-height));
   }
 }
 @layer base {
