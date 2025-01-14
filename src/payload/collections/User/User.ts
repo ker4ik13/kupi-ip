@@ -21,7 +21,9 @@ export const User: CollectionConfig = {
       ru: 'Админ',
     },
   },
-  auth: true,
+  auth: {
+    maxLoginAttempts: 10,
+  },
   access: {
     read: access({ query: (args) => ({ id: { equals: args.req?.user?.id } }) }),
   },
