@@ -75,8 +75,48 @@ export const Accordion: Block = {
       },
     },
     {
+      name: 'type',
+      label: {
+        en: 'Type',
+        ru: ' Тип',
+      },
+      type: 'select',
+      defaultValue: 'manual',
+      options: [
+        {
+          label: {
+            en: 'Manual',
+            ru: 'Ввести вручную',
+          },
+          value: 'manual',
+        },
+        {
+          label: {
+            en: 'Preset',
+            ru: 'Шаблон',
+          },
+          value: 'preset',
+        },
+      ],
+    },
+    {
+      name: 'preset',
+      label: {
+        en: 'Preset',
+        ru: 'Шаблон',
+      },
+      type: 'relationship',
+      relationTo: 'accordion-preset',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'preset',
+      },
+    },
+    {
       name: 'items',
       type: 'array',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'manual',
+      },
       label: {
         en: en.common.item.plural,
         ru: ru.common.item.plural,

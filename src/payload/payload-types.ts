@@ -17,6 +17,7 @@ export interface Config {
     category: Category;
     download: Download;
     guide: Guide;
+    'accordion-preset': AccordionPreset;
     user: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -30,6 +31,7 @@ export interface Config {
     category: CategorySelect<false> | CategorySelect<true>;
     download: DownloadSelect<false> | DownloadSelect<true>;
     guide: GuideSelect<false> | GuideSelect<true>;
+    'accordion-preset': AccordionPresetSelect<false> | AccordionPresetSelect<true>;
     user: UserSelect<false> | UserSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -220,6 +222,8 @@ export interface AccordionBlock {
     };
     [k: string]: unknown;
   } | null;
+  type?: ('manual' | 'preset') | null;
+  preset?: (string | null) | AccordionPreset;
   items?:
     | {
         title?: string | null;
@@ -244,6 +248,37 @@ export interface AccordionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'accordion';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "accordion-preset".
+ */
+export interface AccordionPreset {
+  id: string;
+  name?: string | null;
+  items?:
+    | {
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -828,6 +863,10 @@ export interface PayloadLockedDocument {
         value: string | Guide;
       } | null)
     | ({
+        relationTo: 'accordion-preset';
+        value: string | AccordionPreset;
+      } | null)
+    | ({
         relationTo: 'user';
         value: string | User;
       } | null);
@@ -983,6 +1022,8 @@ export interface AccordionBlockSelect<T extends boolean = true> {
   prefix?: T;
   smileyTitle?: T;
   content?: T;
+  type?: T;
+  preset?: T;
   items?:
     | T
     | {
@@ -1272,6 +1313,22 @@ export interface GuideSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "accordion-preset_select".
+ */
+export interface AccordionPresetSelect<T extends boolean = true> {
+  name?: T;
+  items?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
