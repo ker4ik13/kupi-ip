@@ -49,9 +49,17 @@ export const generateMeta = async (args: {
     : fallback?.description
       ? fallback?.description
       : ''
+
+  const canonicalUrl = pathname
+    ? `${process.env.NEXT_PUBLIC_APP_URL}${pathname}`
+    : process.env.NEXT_PUBLIC_APP_URL
+
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: mergeOpenGraph({
       title,
       description,
