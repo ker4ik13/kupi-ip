@@ -46,7 +46,7 @@ export const TariffCard = ({
             className="text-slate-50/80 hover:text-slate-50/100 self-center mt-3 decoration-inherit"
             asChild
           >
-            <NextLink {...getLinkProps(trialLink)}>Протестировать бесплатно</NextLink>
+            <NextLink {...getLinkProps(trialLink)}>Протестировать за 29 Руб.</NextLink>
           </Button>
         )}
       </div>
